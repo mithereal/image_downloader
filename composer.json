@@ -2,7 +2,7 @@
   "name": "andreaslancom/image_downloader",
   "description": "Package for downloading images from remote host",
   "license": "MIT",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "require": {
     "php": ">=5.4.0"
   },
