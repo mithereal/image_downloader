@@ -12,13 +12,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-composer require andreaslancom/image_downloader
+composer require andreaslancom/image_downloader:dev-master
 ```
 
 or add
 
 ```json
-"andreaslancom/image_downloader": "1.0.0"
+ "andreaslancom/image_downloader": "dev-master"
 ```
 
 to the `require` section of your composer.json.
