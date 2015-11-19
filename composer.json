@@ -1,7 +1,6 @@
 {
   "name": "andreaslancom/image_downloader",
   "description": "Package for downloading images from remote host",
-  "version": "1.0.0",
   "license": "MIT",
   "minimum-stability": "stable",
   "require": {
