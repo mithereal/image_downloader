@@ -78,13 +78,18 @@ class ImageSaver{
      * @return int
      * @throws \Exception
      */
-    public function save(ImageInstance $imageInstance){
+    public function save(ImageInstance $imageInstance,$filename = null){
         if(!$this->checkDir()){
             throw new \Exception('Wrong directory!');
         }
 
-        $fileName = $imageInstance->getImageName();
-        $fileFullName = $this->dir.DIRECTORY_SEPARATOR.$fileName;
+        if(!isset($filename)){
+           $fileName = $imageInstance->getImageName();
+        }
+
+
+        $fileFullName = $this->dir.DIRECTORY_SEPARATOR.$filename;
+    
         $imageUrl = $imageInstance->getImageUrl();
 
         return $this->createFile($fileFullName, $imageUrl);

@@ -18,8 +18,8 @@ class ImageDownloader{
      * @param $imageUrl
      * @return ImageInstance
      */
-    protected function createImageInstance($imageUrl){
-        return new ImageInstance($imageUrl);
+    protected function createImageInstance($imageUrl,$filename = null){
+        return new ImageInstance($imageUrl,$filename);
     }
 
     /**
@@ -40,18 +40,18 @@ class ImageDownloader{
      * @return int - file size in bytes
      * @throws \Exception
      */
-    public function download($imageUrl, $dir){
-        $imageInstance = $this->createImageInstance($imageUrl);
+    public function download($imageUrl, $dir, $filename = null){
+        $imageInstance = $this->createImageInstance($imageUrl,$filename);
         if(!$imageInstance->getFileExists()){
             throw new \Exception('File not exists!');
         }
 
-        $imageValidator = new ImageValidator(['jpg', 'png', 'gif']);
+        $imageValidator = new ImageValidator(['jpg', 'png', 'gif','JPG']);
         if(!$imageValidator->validate($imageInstance)){
             throw new \Exception('Not allowed file format!');
         }
 
         $imageSaver = $this->createImageSaver($dir);
-        return $imageSaver->save($imageInstance);
+        return $imageSaver->save($imageInstance,$filename);
     }
 }

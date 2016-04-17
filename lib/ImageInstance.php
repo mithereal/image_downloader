@@ -15,6 +15,7 @@ class ImageInstance{
      * @var string
      */
     private $imageUrl = '';
+    private $filename = '';
 
     /**
      * Downloading image information
@@ -28,8 +29,11 @@ class ImageInstance{
      *
      * @param string $imageUrl
      */
-    function __construct($imageUrl = ''){
+    function __construct($imageUrl = '',$filename = null){
         $this->setImageUrl($imageUrl);
+        if(isset($filename)){
+        $this->setFilename($filename);
+        }
     }
 
     /**
@@ -38,6 +42,18 @@ class ImageInstance{
     public function getImageUrl()
     {
         return $this->imageUrl;
+    }
+
+    /**
+     * @param mixed $Filename
+     */
+    public function setFilename($Filename)
+    {
+        $this->filename = $Filename;
+    }
+  public function getFilename()
+    {
+        return $this->filename;
     }
 
     /**
